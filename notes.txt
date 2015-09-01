@@ -3,3 +3,27 @@ due Tues 9/7
 outline: https://github.com/turingschool/curriculum/blob/master/source/projects/chisel.markdown
 markdown: https://daringfireball.net/projects/markdown/syntax
 html: https://www.codecademy.com/tracks/web
+
+How does it interpret that input?
+
+The string has no new lines, so it's one "block"
+The block doesn't start with #, so it's a paragraph (<p>) not a header. The whole output will be wrapped in <p> and </p>
+Part of the input, *hello*, is wrapped in asterisks. That's the Markdown marker for emphasis. So that fragment hello will be wrapped in <em> and </em>
+
+1. Tests 40 - 100
+2. Methods to match Tests
+3. Class:
+
+Header
+Block (no lines)
+Paragraph
+List
+Symbols
+Other (link, pic, etc)
+
+Make sure to include:
+
+4-8 Classes
+40-100 Tests
+Multiple Enumerables
+Read / Write Files
