@@ -1,7 +1,9 @@
 due Tues 9/7
 
 outline: https://github.com/turingschool/curriculum/blob/master/source/projects/chisel.markdown
+
 markdown: https://daringfireball.net/projects/markdown/syntax
+cheat sheet: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#emphasis
 html: https://www.codecademy.com/tracks/web
 
 How does it interpret that input?

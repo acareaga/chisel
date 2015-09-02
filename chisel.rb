@@ -52,5 +52,3 @@ puts "Converted #{input_file_name} (#{input_lines}) to #{output_file_name} (#{ou
   # end
 
 # end
-
-# puts "Converted my_input.markdown (6 lines) to my_output.html (8 lines)"

@@ -2,11 +2,6 @@ require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
 
-
-
-
-
-
 # class HeaderTest < Minitest::Test
 #   def test_it_exists
 #     assert Header.new("apple")
@@ -27,4 +22,4 @@ require 'minitest/pride'
   # assert_equal Header.new(string)
   # end
 
-end
+# end
