@@ -1,36 +1,56 @@
 require 'pry'
 
-class Header
+# Parser
+# ruby chisel.rb input.markdown output.html
+# chisel read input.markdown
+# split input.markdown in each element
+# save as variable
+# split each line into string
 
-  def initialize(string)
-    true
-  end
+# recognize if string includes certain characters
+# if it includes character, substitute markdown elements with html
+# leave "inside" text intact
+# continue evaluating the string
+# loop back to top, if end continue to next string
 
-  def h1(string)
-    ending = " </h1>"
-    @string = string.gsub!("##", "<h1>")
-    @string + ending
-  end
+# chisel write output.html
 
-  def h2(string)
-    ending = " </h2>"
-    @string = string.gsub!("##", "<h2>")
-    @string + ending
-  end
+require_relative 'chisel_parser'
+require 'chisel_parser'
 
-  def h3(string)
-    ending = " </h3>"
-    @string = string.gsub!("##", "<h3>")
-    @string + ending
-  end
+parser = ChiselParser.new(ARGV)
+parser.????
+puts "Converted #{input_file_name} (#{input_lines}) to #{output_file_name} (#{output_lines})"
 
-  # def check_rotation?(check_word)
-  #   if check_word.downcase == @word
-  #     true
-  #   else
-  #     false
-  #   end
+
+
+
+
+
+# class Header
+#
+#   def initialize(string)
+#     true
+#   end
+
+  # def h1(string)
+  #   ending = " </h1>"
+  #   @string = string.gsub!("##", "<h1>")
+  #   @string + ending
   # end
-end
+  #
+  # def h2(string)
+  #   ending = " </h2>"
+  #   @string = string.gsub!("##", "<h2>")
+  #   @string + ending
+  # end
+  #
+  # def h3(string)
+  #   ending = " </h3>"
+  #   @string = string.gsub!("##", "<h3>")
+  #   @string + ending
+  # end
+
+# end
 
 # puts "Converted my_input.markdown (6 lines) to my_output.html (8 lines)"

@@ -19,7 +19,7 @@ Block (no lines)
 Paragraph
 List
 Symbols
-Other (link, pic, etc)
+Links = inline [test] (www.github.com)
 
 Make sure to include:
 
