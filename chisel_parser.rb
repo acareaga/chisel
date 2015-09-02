@@ -8,9 +8,13 @@ class ChiselParser
     Chisel.
   end
 
+  def valid_file_type
+    # validate that the input file works before continuing
+  end
+
   def start_parsing
     # what needs to happen to text
-    
+
   end
 
 end
