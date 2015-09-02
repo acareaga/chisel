@@ -15,6 +15,9 @@ class ChiselParser
   def start_parsing
     # what needs to happen to text
 
+    split_file = input_file.lines.map(&:chomp) # split text by line
+    # convert empty qoutes into new lines /n
+    # pass into
   end
 
 end
