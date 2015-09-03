@@ -14,17 +14,14 @@ class HeaderTest < Minitest::Test
     assert_equal "<h1> Test Header</h1>", text.html_version
   end
 
-
-
-
-  # def test_h2(string)
-  # ending = " </h2>"
-  # assert_equal Header.new(string)
-  # end
-  #
-  # def test_h3(string)
-  # ending = " </h3>"
-  # assert_equal Header.new(string)
-  # end
+# Test H1
+# Test H2
+# Test H3
+# Test H4
+# Test H5
+# Test header that wraps two lines
+# Test line breaks in header (H1, line break then H2)
+# Test multiple header sizes in same line
+# Test special characters in line (scope limited to headers)
 
 end
