@@ -10,7 +10,6 @@ class Paragraph
   end
 
   def paragraph(text)
-    
 
   end
 

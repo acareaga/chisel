@@ -12,20 +12,36 @@ The string has no new lines, so it's one "block"
 The block doesn't start with #, so it's a paragraph (<p>) not a header. The whole output will be wrapped in <p> and </p>
 Part of the input, *hello*, is wrapped in asterisks. That's the Markdown marker for emphasis. So that fragment hello will be wrapped in <em> and </em>
 
-1. Tests 40 - 100
-2. Methods to match Tests
-3. Class:
-
-Header
-Block (no lines)
-Paragraph
-List
-Symbols
-Links = inline [test] (www.github.com)
-
 Make sure to include:
-
 4-8 Classes
 40-100 Tests
 Multiple Enumerables
 Read / Write Files
+
+
+###
+num = 3
+"<h#{num}>"
+
+
+
+Chisel - Main File that's called
+Chisel Parser - Manages everything
+Paragraph.rb
+Unordered List.rb
+Ordered List.rb
+
+Header
+List (UL/OL)
+Block (no lines)
+Symbols
+Links = inline [test] (www.github.com)
+
+REQUIRE
+Chisel Parser file in Chisel file
+all files in Chisel Parser
+
+TO DO:
+
+Create a class at the end to add empty space and lines ("") back in...
+output_file = converted_file.gsub! "", /^$\n/ # convert empty qoutes into new lines ??
