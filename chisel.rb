@@ -16,6 +16,11 @@ require_relative 'chisel_parser'
 
 # chisel write output.html
 
-parser = ChiselParser.new(ARGV)
-parser.????
-puts "Converted #{input_file_name} (#{input_lines}) to #{output_file_name} (#{output_lines})"
+# parser = ChiselParser.new(ARGV)
+input_file = File.open(ARGV[0], "r")
+File.read(input_file || input.md)
+# ChiselParser.new(input_file)
+binding.pry
+
+# parser.????
+# puts "Converted #{input_file_name} (#{input_lines}) to #{output_file_name} (#{output_lines})"

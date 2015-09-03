@@ -11,7 +11,7 @@ class HeaderTest < Minitest::Test
 
   def test_h1
     text = Header.new("# Test Header")
-    assert_equal "<h1> Test Header</h1>", text.html_version
+    assert_equal "<h1>Test Header</h1>", text.html_version
   end
 
 # Test H1

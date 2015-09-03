@@ -6,18 +6,17 @@ class Header
   attr_reader :html_version
 
   def initialize(text)
-    @html_version = h1(text)
+    @html_version = header_converter(text)
   end
 
   def header_converter(text)
-    text = "##### Test Header"
     header_level = text.to_s.count "#"
     ending = "</h#{header_level}>"
-
-    html_header = text each do |syntax|
+    characters = text.chars
+    html_header = characters.each do |syntax|
       syntax.gsub!("#", "<h#{header_level}>")
     end
-    html_header[0] + ending
+    html_version = html_header.join + ending
   end
 
 end
