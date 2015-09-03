@@ -1,3 +1,6 @@
+require_relative 'paragraph'
+require_relative 'header'
+
 ARGV
 input_file = File.open(ARGV[0], "r")
 puts input_file.read

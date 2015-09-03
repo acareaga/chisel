@@ -1,4 +1,5 @@
 require 'pry'
+require_relative 'chisel_parser'
 
 # Parser
 # ruby chisel.rb input.markdown output.html
@@ -14,9 +15,6 @@ require 'pry'
 # loop back to top, if end continue to next string
 
 # chisel write output.html
-
-require_relative 'chisel_parser'
-require 'chisel_parser'
 
 parser = ChiselParser.new(ARGV)
 parser.????

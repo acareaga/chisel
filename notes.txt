@@ -1,32 +1,41 @@
-due Tues 9/7
+Due: Tuesday 9/7/15
 
-outline: https://github.com/turingschool/curriculum/blob/master/source/projects/chisel.markdown
+Outline: https://github.com/turingschool/curriculum/blob/master/source/projects/chisel.markdown
+Markdown: https://daringfireball.net/projects/markdown/syntax
+Cheat Sheet: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#emphasis
+HTML: https://www.codecademy.com/tracks/web
 
-markdown: https://daringfireball.net/projects/markdown/syntax
-cheat sheet: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#emphasis
-html: https://www.codecademy.com/tracks/web
-
-How does it interpret that input?
-
-The string has no new lines, so it's one "block"
-The block doesn't start with #, so it's a paragraph (<p>) not a header. The whole output will be wrapped in <p> and </p>
-Part of the input, *hello*, is wrapped in asterisks. That's the Markdown marker for emphasis. So that fragment hello will be wrapped in <em> and </em>
-
-Make sure to include:
+-- REQUIREMENTS --
 4-8 Classes
 40-100 Tests
 Multiple Enumerables
-Read / Write Files
+File I/O (read and write)
 
+-- FLOW --
+# Parser
+# ruby chisel.rb input.markdown output.html
+# chisel read input.markdown
+# split input.markdown into strings of each line
+# save as variable
 
+# recognize if string includes certain characters
+# if it includes character, gsub markdown elements with html
+# leave "inside" text intact
+# continue evaluating string
+# loop back to top until end of line, then continue to next string
+
+# chisel write output.html
+
+-- LOGIC --
+Apply similar reasoning across formatting, lists, linked, etc.
 ###
 num = 3
 "<h#{num}>"
 
 
-
-Chisel - Main File that's called
-Chisel Parser - Manages everything
+-- FILES & TESTS --
+Chisel.rb - main file
+Chisel Parser - manages everything
 Paragraph.rb
 Unordered List.rb
 Ordered List.rb
@@ -37,11 +46,10 @@ Block (no lines)
 Symbols
 Links = inline [test] (www.github.com)
 
-REQUIRE
+-- REQUIRE --
 Chisel Parser file in Chisel file
 all files in Chisel Parser
 
-TO DO:
-
+-- TO DO --
 Create a class at the end to add empty space and lines ("") back in...
 output_file = converted_file.gsub! "", /^$\n/ # convert empty qoutes into new lines ??
