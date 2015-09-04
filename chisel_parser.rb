@@ -24,10 +24,20 @@ class ChiselParser
   end
 
   def file_parser(text_split_by_line_break)
-    text1 = paragraph_converter(text_split_by_line_break)
-    text2 = header_converter(text1)
-    text3 = formatting_converter(text2)
-    converted_text = list_converter(text3)
+    text_split_by_line_break.each do |text|
+      if text.chars.starts_with?("#")
+        converted_text << header_converter
+      elsif text.chars.starts_with?("**")
+        converted_text << bold_converter
+      elsif text.chars.starts_with?("*")
+        converted_text << italics_list_converter
+      elsif text.chars.starts_with?("1")
+        converted_text << ordered_list_converter
+      elsif text.chars.starts_with?("*")
+        converted_text << unordered_list_converter
+      else
+        converted_text << paragraph_converter
+      end
     create_and_package_output_file
   end
 
