@@ -1,14 +1,60 @@
-# Convert italics and bold
+require 'minitest'
+require 'minitest/autorun'
+require 'minitest/pride'
+require_relative 'Formatting'
 
-# Test italics converter with asterisk *asdfsa* to <em>
-# Test italics converter with underscores _asdsa_ to <em>
-# Test bold converts with double asterisk **asadfs** to <strong>
-# Test italics and bold convert in same string
+class FormattingTest < Minitest::Test
 
-# Test bold converts within a header
-# Test bold converts within a list
-# Test bold converts within a link
+  def test_convert_italics
+    skip
+  end
 
-# Test italics convert within a header
-# Test italics converts within a list
-# Test italics converts within a link
+  def test_convert_bold
+    skip
+  end
+
+  def test_convert_ampersand
+    skip
+  end
+
+  def test_convert_italics_bold_and_ampersand_together
+    skip
+  end
+
+  def test_convert_bold_within_header
+    skip
+  end
+
+  def test_convert_bold_within_list
+    skip
+  end
+
+  def test_convert_bold_within_link
+    skip
+  end
+
+  def test_convert_italics_within_header
+    skip
+  end
+
+  def test_convert_italics_within_list
+    skip
+  end
+
+  def test_convert_italics_within_link
+    skip
+  end
+
+  def test_convert_ampersand_within_header
+    skip
+  end
+
+  def test_convert_ampersand_within_list
+    skip
+  end
+
+  def test_convert_ampersand_within_link
+    skip
+  end
+
+end

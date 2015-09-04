@@ -9,22 +9,27 @@ class ParagraphTest < Minitest::Test
     assert Paragraph.new("Test paragraph.")
   end
 
-  def test_if_paragraph_syntax_converted
+  def test_if_paragraph_converted
     Paragraph.new("Test paragraph.")
     assert_equal "<p>Test Paragraph.</p>", text.html_version
   end
 
+  # 13 text = Paragraph.new(text)
 
-# 13   text = Paragraph.new(text)
+  def test_multiple_lines_of_text_with_no_breaks
+    skip
+  end
 
-  # def test_if_paragraph_syntax_converted
-  #   text = Paragraph.new("Test a markdown sentence.")
-  #   assert_equal "<p>Test a markdown sentence</p>", text.html_version
-  # end
+  def test_multiple_lines_of_text_with_line_breaks
+    skip
+  end
 
-  # Test one chunk of text (one or more lines with no blank lines)
-  # Test two chunks of text (two lines with line breaks)
-  # Test multiple chunks of text, two or more line breaks in paragraph
-  # Test scope of paragraph converter, text that includes special characters
+  def test_text_with_multiple_line_breaks_across_paragraphs
+    skip
+  end
+
+  def test_scope_of_paragraph_converter_with_special_characters
+    skip
+  end
 
 end
