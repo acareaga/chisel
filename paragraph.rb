@@ -2,18 +2,21 @@ require 'pry'
 
 class Paragraph
 
-  attr_reader :text
-  attr_reader :html_version
+  attr_accessor :text
+  attr_accessor :html_version
 
   def initialize(text)
-    @html_version = paragraph(text)
+    @html_version = paragraph_converter(text)
+    @text = text
   end
 
-  # def paragraph_converter(text)
-  #   text = "This is the first line of the paragraph. \nThis is the second line of the same paragraph."
-  #   html_paragraph = text map do |syntax|
-  #     syntax.insert(0, "<p>").insert(-1, "</p>")
-  #   end
-  # end
+  def paragraph_converter(text)
+    html_version = "<p>#{text}</p>"
+  end
 
 end
+
+# characters = text.chars
+#text.map do |syntax|
+  # syntax.insert(0, "<p>").insert(-1, "</p>")
+# html_version #html_version =  .join

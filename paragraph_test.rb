@@ -6,8 +6,16 @@ require_relative 'paragraph'
 class ParagraphTest < Minitest::Test
 
   def test_if_it_exists
-    assert ParagraphTest.new("Test markdown sentece.")
+    assert Paragraph.new("Test paragraph.")
   end
+
+  def test_if_paragraph_syntax_converted
+    Paragraph.new("Test paragraph.")
+    assert_equal "<p>Test Paragraph.</p>", text.html_version
+  end
+
+
+# 13   text = Paragraph.new(text)
 
   # def test_if_paragraph_syntax_converted
   #   text = Paragraph.new("Test a markdown sentence.")

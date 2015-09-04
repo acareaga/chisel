@@ -1,46 +1,44 @@
 require_relative 'paragraph'
 require_relative 'header'
+require_relative 'formatting'
+require_relative 'list'
+
 require 'pry'
 
-# Parser
-# ruby chisel.rb input.markdown output.html
-# chisel read input.markdown
-# split input.markdown in each element
-# save as variable
-# split each line into string
+# input_file = File.open(ARGV[0], "r")
+# puts input_file.read
 
-# recognize if string includes certain characters
-# if it includes character, substitute markdown elements with html
-# leave "inside" text intact
-# continue evaluating the string
-# loop back to top, if end continue to next string
-
-# chisel write output.html
-
-ARGV
-input_file = File.open(ARGV[0], "r")
-puts input_file.read
 class ChiselParser
 
-  def initialize(array_of_input_and_output)
-    Chisel.new
+  attr_accessor :text
+
+  def initialize(text)
+    @input_file = file
+    @text = text
   end
 
-  def valid_file_type
-    # validate that the input file works before continuing
+  def read_and_split_input_file(input_file)
+    input_file = File.open(ARGV[0], "r")
+    text_split_by_line_break = input_file.split("\n\n") # lines.map(&:chomp) split by line break
+
+    file_parser
   end
 
-  def start_parsing(text) # what needs to happen to text
-    text_split_into_chunks = text.split("/n/n") # lines.map(&:chomp) # split text by line
-    # pass into ...
-
-    text1 = paragraph_converter(text_split_into_chunks)
+  def file_parser(text_split_by_line_break) # what needs to happen to text
+    text1 = paragraph_converter(text_split_by_line_break)
     text2 = header_converter(text1)
-    text3 = list_converter(text2)
+    text3 = formatting_converter(text2)
+    text4 = list_converter(text3)
 
-    # paragraph_converter
-    # header_converter
-    # list converter
+    create_and_package_output_file
+  end
+
+  def create_and_package_output_file(text)
+    WriteFile.new.output_file(text)
+
+    converted_text = file_parser(text)
+    output_file = create_output_html_file(converted_text)
+    puts "Converted #{input_file} (#{input_file.lines.length}) to #{output_file} (#{output_file.lines.length})."
   end
 
 end

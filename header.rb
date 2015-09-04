@@ -11,11 +11,12 @@ class Header
 
   def header_converter(text)
     header_level = text.to_s.count "#"
-    ending = "</h#{header_level}>"
+
     characters = text.chars
     html_header = characters.each do |syntax|
       syntax.gsub!("#", "<h#{header_level}>")
     end
+    ending = "</h#{header_level}>"
     html_version = html_header.join + ending
   end
 
