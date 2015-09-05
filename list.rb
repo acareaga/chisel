@@ -12,12 +12,18 @@ class List
   attr_reader :html_version
 
   def initialize(text)
-    @html_version = header_converter(text)
+    @html_version = list_converter(text)
   end
 
-  def unordered_list_converter(text)
-    # convert bullet * Sushi to <ul> "/n" <li>Sushi</li> "/n" </ul>
+  def list_converter(text)
+    number = [1..9]
+    middle_text = text.delete("*").delete("#{number}.").lstrip.rstrip
+    html_version = "<li>#{middle_text}</li>\n"
   end
+
+  # if starts_with?("*") = unordered_list
+  # if starts_with?(1..9) = ordered_list
+  # each list_element with index do
 
   def ordered_list_converter(text)
     # convert numbers 1. Sushi to <ol> "/n" <li>Sushi</li> "/n" </ol>

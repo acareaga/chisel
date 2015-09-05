@@ -5,6 +5,21 @@ require_relative 'list'
 
 class ListTest < Minitest::Test
 
+  def test_it_exists
+    assert ListTest.new("* I am a list element\n")
+  end
+
+  def test_ordered_list_element_converts
+    text = List.new("1. I am a list element\n")
+    assert_equal "<li>I am a list element</li>\n", text.html_version
+  end
+
+  def test_unordered_list_element_converts
+    text = List.new("* I am a list element\n")
+    assert_equal "<li>I am a list element</li>\n", text.html_version
+  end
+
+
   def test_unordered_list
     skip
   end

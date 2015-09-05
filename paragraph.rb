@@ -11,7 +11,7 @@ class Paragraph
 
   def paragraph_converter(text)
     middle_text = text.lstrip.rstrip
-    html_version = "<p>#{middle_text}</p>"
+    html_version = "<p>#{middle_text}</p>\n"
   end
 
 end

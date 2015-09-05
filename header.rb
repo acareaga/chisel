@@ -12,7 +12,7 @@ class Header
   def header_converter(text)
     header_level = text.to_s.count "#"
     middle_text = text.delete("#").lstrip.rstrip
-    html_version = "<h#{header_level}>#{middle_text}</h#{header_level}>"
+    html_version = "<h#{header_level}>#{middle_text}</h#{header_level}>\n"
   end
 
 end
