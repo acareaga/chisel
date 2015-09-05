@@ -2,34 +2,24 @@ require 'pry'
 
 class Formatting
 
-  def italics_converter
-    # convert *asdf* to <em>asdf</em>
+  def initialize(text)
+    @html_version = italics_converter(text)
+    @html_version = bold_converter(text)
+    @html_version = ampersand_converter(text)
   end
 
-  def bold_converter
-    # convert **asdf** to <strong>asdf</strong>
+  def italics_converter(text)
+    middle_text = text.delete("*").delete("_").lstrip.rstrip
+    html_version = "<em>#{middle_text}</em>"
   end
 
-  def ampersand_converter
-    # convert & to &amp;
+  def bold_converter(text)
+    middle_text = text.delete("*").lstrip.rstrip
+    html_version = "<strong>#{middle_text}</strong>"
+  end
+
+  def ampersand_converter(text)
+    text.gsub!("&", "&amp;")
   end
 
 end
-
-
-
-
-
-
-# def header_converter(text)
-#   header_level = text.to_s.count "#"
-#   characters = text.chars
-#   html_header = characters.each do |syntax|
-#     syntax.gsub!("#", "<h#{header_level}>")
-#   end
-#   ending = "</h#{header_level}>"
-#   html_version = html_header.join + ending
-#
-# end
-#
-# end
