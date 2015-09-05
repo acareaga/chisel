@@ -2,11 +2,10 @@ require_relative 'paragraph'
 require_relative 'header'
 require_relative 'formatting'
 require_relative 'list'
-
 require 'pry'
 
-# input_file = File.open(ARGV[0], "r")
-# puts input_file.read
+input_file = File.open(ARGV[0], "r")
+puts input_file.read
 
 class ChiselParser
 
@@ -19,25 +18,26 @@ class ChiselParser
 
   def read_and_split_input_file(input_file)
     input_file = File.open(ARGV[0], "r")
-    text_split_by_line_break = input_file.split("\n\n") # lines.map(&:chomp) split by line break
+    text_split_by_line_break = input_file.split("\n\n")
     file_parser
   end
 
   def file_parser(text_split_by_line_break)
     text_split_by_line_break.each do |text|
       if text.chars.starts_with?("#")
-        converted_text << header_converter
+        converted_text << header_converter.formatting_converter
       elsif text.chars.starts_with?("**")
-        converted_text << bold_converter
+        converted_text << bold_converter.formatting_converter
       elsif text.chars.starts_with?("*")
-        converted_text << italics_list_converter
+        converted_text << italics_list_converter.formatting_converter
       elsif text.chars.starts_with?("1")
-        converted_text << ordered_list_converter
+        converted_text << ordered_list_converter.formatting_converter
       elsif text.chars.starts_with?("*")
-        converted_text << unordered_list_converter
+        converted_text << unordered_list_converter.formatting_converter
       else
-        converted_text << paragraph_converter
+        converted_text << paragraph_converter.formatting_converter
       end
+    end
     create_and_package_output_file
   end
 
@@ -47,3 +47,6 @@ class ChiselParser
   end
 
 end
+
+output_file = ChiselParser.new(input_file)
+p "This is your output..."
