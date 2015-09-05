@@ -7,11 +7,11 @@ class Paragraph
 
   def initialize(text)
     @html_version = paragraph_converter(text)
-    @text = text
   end
 
   def paragraph_converter(text)
-    html_version = "<p>#{text}</p>"
+    middle_text = text.lstrip.rstrip
+    html_version = "<p>#{middle_text}</p>"
   end
 
 end

@@ -6,15 +6,13 @@ require_relative 'paragraph'
 class ParagraphTest < Minitest::Test
 
   def test_if_it_exists
-    assert Paragraph.new("Test paragraph.")
+    assert Paragraph.new("Test paragraph.\n")
   end
 
   def test_if_paragraph_converted
-    Paragraph.new("Test paragraph.")
+    text = Paragraph.new("Test Paragraph.\n")
     assert_equal "<p>Test Paragraph.</p>", text.html_version
   end
-
-  # 13 text = Paragraph.new(text)
 
   def test_multiple_lines_of_text_with_no_breaks
     skip

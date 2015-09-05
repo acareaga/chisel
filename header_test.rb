@@ -6,41 +6,47 @@ require_relative 'header'
 class HeaderTest < Minitest::Test
 
   def test_it_exists
-    assert HeaderTest.new("# Test Markdown")
+    assert HeaderTest.new("# Test Markdown\n")
   end
 
   def test_h1
-    text = Header.new(text)
-    assert_equal "<h1>Test Header</h1>", text.html_version
+    text = Header.new("# My Life in Desserts\n")
+    assert_equal "<h1>My Life in Desserts</h1>", text.html_version
   end
 
   def test_h2
-    skip
-    text = Header.new("## Test Header")
-    assert_equal "<h2>Test Header</h2>", text.html_version
+    text = Header.new("## Chapter 1: The Beginning\n")
+    assert_equal "<h2>Chapter 1: The Beginning</h2>", text.html_version
   end
 
   def test_h3
-    skip
-    text = Header.new("### Test Header")
-    assert_equal "<h3>Test Header</h3>", text.html_version
+    text = Header.new("### Chapter 2: The Middle\n")
+    assert_equal "<h3>Chapter 2: The Middle</h3>", text.html_version
   end
 
   def test_h4
-    skip
-    text = Header.new("#### Test Header")
-    assert_equal "<h4>Test Header</h4>", text.html_version
+    text = Header.new("#### Chapter 3: The Middle, Part 2\n")
+    assert_equal "<h4>Chapter 3: The Middle, Part 2</h4>", text.html_version
   end
 
   def test_h5
-    skip
-    text = Header.new("##### Test Header")
-    assert_equal "<h5>Test Header</h5>", text.html_version
+    text = Header.new("##### Chapter 4: The End!\n")
+    assert_equal "<h5>Chapter 4: The End!</h5>", text.html_version
   end
 
-# Test header that wraps two lines
-# Test line breaks in header (H1, line break then H2)
-# Test multiple header sizes in same line
-# Test special characters in line (scope limited to headers)
+  def test_header_without_new_line_character
+    text = Header.new("###### My Life in Desserts")
+    assert_equal "<h6>My Life in Desserts</h6>", text.html_version
+  end
+
+  def test_special_markdown_characters_in_header
+    text = Header.new("### My _Life_ in *Desserts*")
+    assert_equal "<h3>My _Life_ in *Desserts*</h3>", text.html_version
+  end
+
+  def test_special_html_characters_in_header
+    text = Header.new("### My <em>Life</em> in <strong>Desserts</strong>")
+    assert_equal "<h3>My <em>Life</em> in <strong>Desserts</strong></h3>", text.html_version
+  end
 
 end
