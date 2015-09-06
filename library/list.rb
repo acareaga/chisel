@@ -6,36 +6,35 @@ class List
   attr_reader :html_version
 
   def initialize(text)
-    @html_version = item_converter(text)
+    @text = text
+    @html_version = list_converter
   end
 
-  # def list_converter(text)
-  #   number = [1..9]
-  #   if text.starts_with?("#{number}")
-  #     ordered_list
-  #   else
-  #     unordered_list
-  #   end
-  # end
-  #
-  # def ordered_list(text)
-  #   text.each do |item|
-  #     html_version = item.item_converter
-  #   end
-  #   html_version.unshift("<ol>\n").push("</ol>\n").join("")
-  # end
-  #
-  # def unordered_list(text)
-  #   text.each do |item|
-  #     html_version = item.item_converter
-  #   end
-  #   html_version.unshift("<ul>\n").push("</ul>\n").join("")
-  # end
+  def list_converter
+    if ordered_list?
+      ordered_list
+    else
+      unordered_list
+    end
+  end
 
-  def item_converter(text)
-    number = [1..9]
-    middle_text = text.delete("*").delete("#{number}.").lstrip.rstrip
-    html_version = "<li>#{middle_text}</li>\n"
+  def ordered_list?
+    text.start_with?("1.")
+  end
+
+  def ordered_list
+    "<ol>\n#{item_converter}</ol>\n"
+  end
+
+  def unordered_list
+    "<ul>\n#{item_converter}</ul>\n"
+  end
+
+  def item_converter
+    text.split("\n").map do |item|
+      middle_text = item.split(" ")[1..-1].join(" ").strip
+      "<li>#{middle_text}</li>\n"
+    end.join("")
   end
 
 end
