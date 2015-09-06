@@ -31,25 +31,3 @@ Apply similar reasoning across formatting, lists, linked, etc.
 ###
 num = 3
 "<h#{num}>"
-
-
--- FILES & TESTS --
-Chisel.rb - main file
-Chisel Parser - manages everything
-Paragraph.rb
-Unordered List.rb
-Ordered List.rb
-
-Header
-List (UL/OL)
-Block (no lines)
-Symbols
-Links = inline [test] (www.github.com)
-
--- REQUIRE --
-Chisel Parser file in Chisel file
-all files in Chisel Parser
-
--- TO DO --
-Create a class at the end to add empty space and lines ("") back in...
-output_file = converted_file.gsub! "", /^$\n/ # convert empty qoutes into new lines ??

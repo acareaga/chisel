@@ -1,7 +1,7 @@
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative 'link'
+require './link'
 
 class LinkTest < Minitest::Test
 

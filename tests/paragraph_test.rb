@@ -1,7 +1,7 @@
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative 'paragraph'
+require './paragraph'
 
 class ParagraphTest < Minitest::Test
 
