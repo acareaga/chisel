@@ -2,6 +2,8 @@ require_relative 'paragraph'
 require_relative 'header'
 require_relative 'formatting'
 require_relative 'list'
+require_relative 'image'
+require_relative 'link'
 require 'pry'
 
 input_file = File.open(ARGV[0], "r")

@@ -10,11 +10,12 @@ class ListTest < Minitest::Test
   end
 
   def test_ordered_list_element_converts
-    text = List.new("1. I am a list element\n")
+    text = List.new("1. I am a list element")
     assert_equal "<li>I am a list element</li>\n", text.html_version
   end
 
   def test_unordered_list_element_converts
+    skip
     text = List.new("* I am a list element\n")
     assert_equal "<li>I am a list element</li>\n", text.html_version
   end

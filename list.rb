@@ -21,6 +21,7 @@ class List
       text.prepend("<ol>\n").append("</ol>\n")
     else
       text.prepend("<ul>\n").append("</ul>\n")
+    end
   end
 
 end
