@@ -2,8 +2,7 @@ require 'pry'
 
 class List
 
-  attr_reader :text
-  attr_reader :html_version
+  attr_reader :text, :html_version
 
   def initialize(text)
     @text = text

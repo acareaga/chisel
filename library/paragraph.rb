@@ -10,13 +10,8 @@ class Paragraph
   end
 
   def paragraph_converter(text)
-    middle_text = text.lstrip.rstrip
+    middle_text = text.strip
     html_version = "<p>#{middle_text}</p>\n"
   end
 
 end
-
-# characters = text.chars
-#text.map do |syntax|
-  # syntax.insert(0, "<p>").insert(-1, "</p>")
-# html_version #html_version =  .join

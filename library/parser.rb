@@ -1,31 +1,37 @@
+require_relative 'header'
 require_relative 'paragraph'
 require 'pry'
 
 class Parser
 
-  attr_accessor :input_file, :output_file, :text
+  attr_accessor :input_file, :my_output, :text
 
   def initialize(input_file)
     @input_file = input_file
-    @output_file = output_file
-    @text = text
+    @my_output = my_output
+    @text = File.open(input_file).read.split("\n\n")
   end
 
   def file_parser
-    text = File.read(input_file).split("\n\n").file_parser
-      if paragraph?
-        paragraph_converter
-      end
-    end.join("\n\n").package_output_file
+    text.map do |chunk|
+    if header?
+      Header.new(chunk).header_converter
+    else
+      Paragraph.new(chunk).paragraph_converter
+    end
+    end.join("\n\n")
   end
 
   def package_output_file
-    output_file = WriteFile.new.output_file(converted_text)
-    puts "Converted #{input_file} (#{input_file.size} lines) to #{output_file} (#{output_file.size} lines)."
+    output_file = File.open("my_output.html", 'w')
+    output_file.write(file_parser)
+    puts "Converted #{input_file} (#{input_file.size} lines) to my_output.html (#{output_file} lines)."
   end
 
-  def paragraph?
-    text.start_with?('""')
+  def header?
+  text.find_all do |chunks|
+    chunks.start_with?("#")
+  end
   end
 
 end
