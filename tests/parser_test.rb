@@ -1,12 +1,12 @@
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require './chisel_parser'
+require './parser'
 
-class ChiselParserTest < Minitest::Test
+class ParserTest < Minitest::Test
 
   def test_input_file_exists
-    assert ChiselParser.new(input_file)
+    assert Parser.new(input_file)
   end
 
   def test_read_and_split_file

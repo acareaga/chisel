@@ -1,7 +1,7 @@
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require './image'
+require '../library/image'
 
 class ImageTest < Minitest::Test
 
