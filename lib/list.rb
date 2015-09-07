@@ -32,7 +32,7 @@ class List
   def item_converter
     text.split("\n").map do |item|
       middle_text = item.split(" ")[1..-1].join(" ").strip
-      "<li>#{middle_text}</li>\n"
+      "  <li>#{middle_text}</li>\n"
     end.join("")
   end
 

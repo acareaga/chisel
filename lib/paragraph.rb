@@ -11,7 +11,7 @@ class Paragraph
 
   def paragraph_converter
     middle_text = text.strip
-    "<p>#{middle_text}</p>\n"
+    "<p>\n  #{middle_text}\n</p>\n"
   end
 
 end
