@@ -2,8 +2,7 @@ require 'pry'
 
 class Paragraph
 
-  attr_accessor :text
-  attr_accessor :html_version
+  attr_reader :text, :html_version
 
   def initialize(text)
     @text = text

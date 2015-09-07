@@ -10,6 +10,8 @@ My favorite cuisines are:
 * Mexican
 * American
 
+My favorite cuisines are:
+
 1. Sushi
 2. Mexican
 3. Fish

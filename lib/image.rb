@@ -9,9 +9,11 @@ class Image
     @html_version = image_converter
   end
 
+![alt text](https://github.com/ "Logo Title")
+
   def image_converter
-    url = '"http://google.com"' # need double qoutes on url and title
-    title = "Google"
+    url = text.split("(", "/")[1]
+    title = text.split('"', '"')
     attribute = text.delete("#").strip
     "<img src=#{url} alt=#{attribute} title=#{title}>"
   end

@@ -1,7 +1,7 @@
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require '../library/header'
+require '../lib/header'
 
 class HeaderTest < Minitest::Test
 

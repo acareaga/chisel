@@ -1,7 +1,7 @@
 require 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
-require '../library/paragraph'
+require '../lib/paragraph'
 
 class ParagraphTest < Minitest::Test
 
