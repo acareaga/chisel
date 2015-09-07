@@ -1,16 +1,19 @@
 require 'pry'
 
-class Images
+class Image
+
+  attr_reader :text, :html_version
 
   def initialize(text)
-    @html_version = image_converter(text)
+    @text = text
+    @html_version = image_converter
   end
 
-  def image_converter(text)
+  def image_converter
     url = '"http://google.com"' # need double qoutes on url and title
-    attribute = # text.delete("#").lstrip.rstrip
-    title = # optional
-    html_version = "<img src=#{url} alt=#{attribute} title=#{title}>"
+    title = "Google"
+    attribute = text.delete("#").strip
+    "<img src=#{url} alt=#{attribute} title=#{title}>"
   end
 
 end

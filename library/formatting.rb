@@ -2,24 +2,43 @@ require 'pry'
 
 class Formatting
 
+  attr_reader :text, :html_version
+
   def initialize(text)
-    @html_version = italics_converter(text)
-    @html_version = bold_converter(text)
-    @html_version = ampersand_converter(text)
+    @text = text
+    @html_version = formatting_converter
   end
 
-  def italics_converter(text)
-    middle_text = text.delete("*").delete("_").lstrip.rstrip
-    html_version = "<em>#{middle_text}</em>"
+  def formatting_converter
+    if ampersand?
+      ampersand_converter
+    elsif bold?
+      bold_converter
+    else
+      italics_converter
+    end
   end
 
-  def bold_converter(text)
+  def ampersand?
+    text.include?("&")
+  end
+
+  def bold?
+    text.include?("**")
+  end
+
+  def ampersand_converter
+    text.gsub!("&", "&amp;")
+  end
+
+  def bold_converter
     middle_text = text.delete("*").lstrip.rstrip
     html_version = "<strong>#{middle_text}</strong>"
   end
 
-  def ampersand_converter(text)
-    text.gsub!("&", "&amp;")
+  def italics_converter
+    middle_text = text.delete("*").delete("_").lstrip.rstrip
+    html_version = "<em>#{middle_text}</em>"
   end
 
 end

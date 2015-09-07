@@ -14,7 +14,7 @@ class Parser
 
   def file_parser
     text.map do |chunk|
-    if header?
+    if header?(chunk)
       Header.new(chunk).header_converter
     else
       Paragraph.new(chunk).paragraph_converter
@@ -28,10 +28,8 @@ class Parser
     puts "Converted #{input_file} (#{input_file.size} lines) to my_output.html (#{output_file} lines)."
   end
 
-  def header?
-  text.find_all do |chunks|
-    chunks.start_with?("#")
-  end
+  def header?(chunk)
+    chunk.start_with?("#")
   end
 
 end

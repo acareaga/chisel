@@ -1,20 +1,19 @@
 require 'pry'
 
-class Links
+class Link
 
-  attr_reader :text
-  attr_reader :html_version
+  attr_reader :text, :html_version
 
   def initialize(text)
-    @html_version = link_converter(text)
+    @text = text
+    @html_version = link_converter
   end
 
-  def link_converter(text)
+  def link_converter
     url = '"http://google.com"' # need double qoutes on url and title
     title = '"Google"'
-    middle_text = text.delete("#").lstrip.rstrip
-    html_version = "<a href=#{url} title=#{title}>
-    #{middle_text}</a>"
+    middle_text = text.delete("#").strip
+    "<a href=#{url} title=#{title}>#{middle_text}</a>"
   end
 
 end

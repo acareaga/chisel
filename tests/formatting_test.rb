@@ -5,16 +5,23 @@ require '../library/formatting'
 
 class FormattingTest < Minitest::Test
 
+  def test_it_exists
+    assert FormattingTest.new('<strong>#{middle_text}</strong>')
+  end
+
   def test_convert_italics
-    skip
+    text = Formatting.new("*Test Italic Words*")
+    assert_equal '<em>Test Italic Words</em>', text.formatting_converter
   end
 
   def test_convert_bold
-    skip
+    text = Formatting.new("**Test Bold Words**")
+    assert_equal '<strong>Test Bold Words</strong>', text.formatting_converter
   end
 
   def test_convert_ampersand
-    skip
+    text = Formatting.new("Test the & Ampersand")
+    assert_equal "Test the &amp; Ampersand", text.formatting_converter
   end
 
   def test_convert_italics_bold_and_ampersand_together

@@ -6,12 +6,13 @@ class Paragraph
   attr_accessor :html_version
 
   def initialize(text)
-    @html_version = paragraph_converter(text)
+    @text = text
+    @html_version = paragraph_converter
   end
 
-  def paragraph_converter(text)
+  def paragraph_converter
     middle_text = text.strip
-    html_version = "<p>#{middle_text}</p>\n"
+    "<p>#{middle_text}</p>\n"
   end
 
 end
