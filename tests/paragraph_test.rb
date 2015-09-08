@@ -6,12 +6,12 @@ require '../lib/paragraph'
 class ParagraphTest < Minitest::Test
 
   def test_if_it_exists
-    assert Paragraph.new("Test paragraph.\n")
+    assert Paragraph.new("Test paragraph.")
   end
 
   def test_if_paragraph_converted
-    text = Paragraph.new("Test Paragraph.\n")
-    assert_equal "<p>Test Paragraph.</p>\n", text.html_version
+    text = Paragraph.new("Test Paragraph.")
+    assert_equal "<p>Test Paragraph.</p>", text.html_version
   end
 
   def test_multiple_lines_of_text_without_new_line_characters

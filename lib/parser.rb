@@ -2,7 +2,8 @@ require_relative 'formatting'
 require_relative 'header'
 require_relative 'list'
 require_relative 'paragraph'
-require 'pry'
+require_relative 'link'
+require_relative 'image'
 
 class Parser
 
@@ -17,34 +18,33 @@ class Parser
 
   def file_parse_elements
     text.map do |chunk|
-    if header?(chunk)
-      Header.new(chunk).header_converter
-    elsif list?(chunk)
-      List.new(chunk).list_converter
-    else
-      Paragraph.new(chunk).paragraph_converter
-    end
+      if header?(chunk)
+        Header.new(chunk).header_converter
+      elsif list?(chunk)
+        List.new(chunk).list_converter
+      else
+        Paragraph.new(chunk).paragraph_converter
+      end
     end
   end
 
   def file_parse_style
     parsed.map do |chunk|
-    if formatting?(chunk)
-      Formatting.new(chunk).formatting_converter
-    # elsif image?(chunk)
-    #   Image.new(chunk).image_converter
-    # elsif link?(chunk)
-    #   Link.new(chunk).image_converter
-    else
-      chunk
-    end
+      if formatting?(chunk)
+        Formatting.new(chunk).formatting_converter
+      else
+        chunk
+      end
     end.join("\n")
   end
 
   def package_output_file
     output_file = File.open("my_output.html", 'w')
     output_file.write(file_parse_style)
-    puts "Converted #{input_file} (#{input_file.size} lines) to my_output.html (#{output_file.size} lines)."
+    output_file.close
+    file = File.open("my_output.html", "r")
+    output_count = file.readlines.size
+    puts "Converted #{input_file} (#{input_file.size} lines) to my_output.html (#{output_count} lines)."
   end
 
   def formatting?(chunk)
