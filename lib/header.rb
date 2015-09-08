@@ -1,5 +1,3 @@
-require 'pry'
-
 class Header
 
   attr_reader :text, :html_version

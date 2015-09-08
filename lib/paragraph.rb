@@ -1,5 +1,3 @@
-require 'pry'
-
 class Paragraph
 
   attr_reader :text, :html_version

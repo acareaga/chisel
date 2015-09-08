@@ -1,5 +1,3 @@
-require 'pry'
-
 class List
 
   attr_reader :text, :html_version

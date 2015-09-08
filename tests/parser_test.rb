@@ -17,8 +17,8 @@ class ParserTest < Minitest::Test
 
   def test_read_and_split_file
     skip
-    text = File.open(input_file).read.split("\n\n")
-    assert_equal text, input_file.read.split("\n\n")
+    text = File.open("my_input.markdown").read.split("\n\n")
+    assert text.html_version
   end
 
   def test_file_parse_elements

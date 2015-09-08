@@ -1,5 +1,3 @@
-require 'pry'
-
 class Link
 
   attr_reader :text, :html_version

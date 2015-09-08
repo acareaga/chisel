@@ -1,5 +1,3 @@
-require 'pry'
-
 class Formatting
 
   attr_reader :text, :html_version

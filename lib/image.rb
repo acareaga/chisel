@@ -1,5 +1,3 @@
-require 'pry'
-
 class Image
 
   attr_reader :text, :html_version
