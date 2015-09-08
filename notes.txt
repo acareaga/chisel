@@ -1,5 +1,10 @@
 Due: Tuesday 9/7/15
 
+3 - Fundamental Ruby & Style
+4 - Test Driven Development
+2 - Functionality
+3 - Breaking Logic into Components
+
 Outline: https://github.com/turingschool/curriculum/blob/master/source/projects/chisel.markdown
 Markdown: https://daringfireball.net/projects/markdown/syntax
 Cheat Sheet: https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#emphasis
